@@ -18,8 +18,9 @@
   },
   "main": "src/electron/main.js",
   "scripts": {
-    "electron-dev": "tsc src/electron/main.ts && electron .", 
+    "electron-dev": "tsc src/electron/main.ts && electron .",
     "start": "react-scripts start",
+    "lint": "prettier . --write",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "electron": "^31.0.1",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3",
+    "prettier": "^3.3.2"
   }
 }

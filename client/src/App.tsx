@@ -1,9 +1,7 @@
+import HostShareScreen from "./pages/host_share_screen";
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+  return <HostShareScreen />;
 }
 
 export default App;
