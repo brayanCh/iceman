@@ -8,7 +8,7 @@ let mainWindow: BrowserWindow | null;
 const createWindow = (): void => {
   mainWindow = new BrowserWindow({ width: 900, height: 680 });
 
-  let isDev = true
+  let isDev = false
   mainWindow.loadURL(
     isDev ?
       "http://localhost:4173" :
