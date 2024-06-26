@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  /* --primary-color: #007bff; */
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --dark-color: #1f2a30;
+  --dark-color-alt: #343a40;
+  --border-color: #444a60;
+}
+
+/* src/pages/host_share_screen.tsx */
+
+.host-share-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--dark-color);
+}
+
+.host-share-screen__bar {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: var(--dark-color-alt);
+}
+
+.host-share-screen__bar__left {
+  display: flex;
+  align-items: center;
+}
+
+.host-share-screen__bar__left__title {
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+.host-share-screen__content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.host-share-screen__content__screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+}
+
+.host-share-screen__content__screen_recording {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-color: #000;
+}
+
+
+.host-share-screen__content__info {
+  display: flex;
+  width: 30%;
+  height: 100%;
+  border-left: 1px solid var(--border-color);
+}
