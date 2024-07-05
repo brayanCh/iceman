@@ -1,7 +1,6 @@
-import { BrowserWindow, app } from 'electron';
+import { BrowserWindow, app } from "electron";
 
 let mainWindow: BrowserWindow | null = null;
-
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
@@ -12,14 +11,13 @@ const createWindow = () => {
     },
   });
 
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile("index.html");
 
-  mainWindow.on('closed', () => {
+  mainWindow.on("closed", () => {
     mainWindow = null;
   });
-}
+};
 
-app.on('ready', () => {
+app.on("ready", () => {
   createWindow();
 });
-
