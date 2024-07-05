@@ -57,6 +57,14 @@ code {
   margin-left: 1rem;
 }
 
+.host-share-screen__bar__right__button {
+  color: white;
+  background-color: var(--success-color);
+  border: 0px solid;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
 .host-share-screen__content {
   display: flex;
   align-items: center;
@@ -75,7 +83,6 @@ code {
   display: flex;
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
   background-color: #000;
 }
 
@@ -84,4 +91,38 @@ code {
   width: 30%;
   height: 100%;
   border-left: 1px solid var(--border-color);
+}
+
+.host_modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0006;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_content {
+  background-color: var(--dark-color);
+  border-radius: 20px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.modal_content_button {
+  color: white;
+  border-radius: 10px;
+  border: 0px;
+  background-color: var(--dark-color-alt);
+  width: 200px;
+  padding: 10px 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

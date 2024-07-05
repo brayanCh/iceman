@@ -9,8 +9,9 @@ const HostShareScreen = (): JSX.Element => {
   const [start, setStart] = createSignal<Date>(new Date());
   const [isSelectingVideo, setIsSelectingVideo] = createSignal<boolean>(false);
   const [sources, setSources] = createSignal<DesktopCapturerSource[]>([]);
+  let interval;
 
-  // updateTime is a function that will get a new date and update the time.
+  // updateTime is a function that gets a new date and update the time.
   // based on the difference between the new date and the start date.
   const updateTime = (): void => {
     let date = new Date();
@@ -18,11 +19,14 @@ const HostShareScreen = (): JSX.Element => {
     setTime(date.toISOString().substring(11, 19));
   };
 
+  // shareScreen is a function that will get from electron the
+  // app availables for sharing and will put a modal in the screen
+  // so the user can choose
   const shareScreen = async (): Promise<void> => {
     let srcs: DesktopCapturerSource[] =
       await window.capture.getAvailableWindows();
-    setIsSelectingVideo(true);
     setSources(srcs);
+    setIsSelectingVideo(true);
   };
 
   const handleStream = async (sourceId: string) => {
@@ -45,7 +49,13 @@ const HostShareScreen = (): JSX.Element => {
 
       videoTag.srcObject = stream;
       videoTag.onloadedmetadata = () => videoTag.play();
-    } catch (e) {}
+
+      setStart(new Date());
+      interval = setInterval(updateTime, 1000);
+    } catch (e) {
+      console.error(e, "error in handleStream, host_share_screen");
+    }
+    setIsSelectingVideo(false);
   };
 
   return (
@@ -76,11 +86,16 @@ const HostShareScreen = (): JSX.Element => {
       </div>
       {isSelectingVideo() && (
         <div class="host_modal">
-          {sources().map((source) => (
-            <button onClick={() => handleStream(source.id)}>
-              {source.name}
-            </button>
-          ))}
+          <div class="modal_content">
+            {sources().map((source) => (
+              <button
+                class="modal_content_button"
+                onClick={() => handleStream(source.id)}
+              >
+                {source.name}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
